@@ -30,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private CheckBox rememberPass;
 
+    private Button databaseHelper;
+    private Button litePal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +76,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        databaseHelper = (Button) findViewById(R.id.button_DatabaseHelper);
+        databaseHelper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, FirstActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        litePal = (Button) findViewById(R.id.button_LitePal);
+        litePal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, LitePalTest.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     @Override
