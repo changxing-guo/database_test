@@ -54,17 +54,24 @@ public class LitePalTest extends AppCompatActivity implements View.OnClickListen
                 animal.save();
                 break;
             case R.id.update_database:
-
+                //有很多种方法，自己实践
+                Animal animal1 = new Animal();
+                animal1.setAge(10);
+                animal1.update(1);
+                ContentValues values_update = new ContentValues();
+                values_update.put("age", 20);
+                DataSupport.update(Animal.class, values_update, 1);
                 break;
             case R.id.delete_database:
-
+                //DataSupport.deleteAll(Animal.class, "id > ?", "1");
+                DataSupport.delete(Animal.class, 2);
                 break;
             case R.id.query_database:
                 List<Animal> animals = DataSupport.findAll(Animal.class);
                 for (Animal an: animals) {
                     Log.d("gcx" , "id = " + an.getId());
-                    Log.d("gcx" , "name = " + an.getName());
-                    Log.d("gcx" , "age = " + an.getAge());
+                    //Log.d("gcx" , "name = " + an.getName());
+                    //Log.d("gcx" , "age = " + an.getAge());
                 }
                 break;
         }
